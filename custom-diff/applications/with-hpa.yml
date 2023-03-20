@@ -22,3 +22,9 @@ spec:
     syncOptions:
       - CreateNamespace=true  
    
+  # Ignore the replicaset count, this is handled by the HPA 
+  ignoreDifferences:
+  - group: apps
+    kind: Deployment
+    jsonPointers:
+    - /spec/replicas
